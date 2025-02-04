@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Channel Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        /* Dark mode */
+        body.dark-mode {
+            background-color: #181818;
+            color: white;
+        }
+
+        /* Channel Banner */
+        .banner {
+            width: 100%;
+            height: 200px;
+            background: url('https://via.placeholder.com/1280x400') no-repeat center/cover;
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* Profile Picture */
+        .profile-container {
+            position: absolute;
+            bottom: -40px;
+            left: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid white;
+            cursor: pointer;
+        }
+
+        /* Channel Name */
+        .channel-info {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .channel-name {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Video Grid */
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 8px;
+            padding: 10px;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        body.dark-mode .video-card {
+            background: #333;
+        }
+
+        .video-card:hover {
+            transform: scale(1.05);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .video-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        /* Dark Mode Toggle */
+        .dark-mode-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        body.dark-mode .dark-mode-btn {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Banner -->
+    <div class="banner" onclick="changeBanner()"></div>
+
+    <!-- Profile & Channel Info -->
+    <div class="profile-container">
+        <img src="https://via.placeholder.com/80" class="profile-pic" onclick="changeProfilePic()">
+    </div>
+
+    <div class="channel-info">
+        <h2 class="channel-name" onclick="editChannelName()">My YouTube Channel</h2>
+    </div>
+
+    <!-- Video Grid -->
+    <div class="video-container">
+        <div class="video-card" onclick="changeVideo(this)">
+            <img src="https://via.placeholder.com/250x140" class="video-thumbnail">
+            <p class="video-title">Video Title 1</p>
+        </div>
+        <div class="video-card" onclick="changeVideo(this)">
+            <img src="https://via.placeholder.com/250x140" class="video-thumbnail">
+            <p class="video-title">Video Title 2</p>
+        </div>
+        <div class="video-card" onclick="changeVideo(this)">
+            <img src="https://via.placeholder.com/250x140" class="video-thumbnail">
+            <p class="video-title">Video Title 3</p>
+        </div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <script>
+        function changeProfilePic() {
+            let newPic = prompt("Enter image URL for new profile picture:");
+            if (newPic) {
+                document.querySelector(".profile-pic").src = newPic;
+            }
+        }
+
+        function changeBanner() {
+            let newBanner = prompt("Enter image URL for new banner:");
+            if (newBanner) {
+                document.querySelector(".banner").style.backgroundImage = `url(${newBanner})`;
+            }
+        }
+
+        function editChannelName() {
+            let newName = prompt("Enter new channel name:");
+            if (newName) {
+                document.querySelector(".channel-name").innerText = newName;
+            }
+        }
+
+        function changeVideo(videoCard) {
+            let newThumbnail = prompt("Enter image URL for new thumbnail:");
+            let newTitle = prompt("Enter new video title:");
+            if (newThumbnail) {
+                videoCard.querySelector(".video-thumbnail").src = newThumbnail;
+            }
+            if (newTitle) {
+                videoCard.querySelector(".video-title").innerText = newTitle;
+            }
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+
+</body>
+</html>
