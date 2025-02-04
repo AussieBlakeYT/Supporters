@@ -55,17 +55,19 @@
 
         .person {
             background-color: #fff;
-            border: 2px solid #ddd;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            min-width: 200px;
         }
 
         .person:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .button-container {
@@ -88,6 +90,14 @@
         .button:hover {
             background-color: #45a049;
         }
+
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            font-size: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -108,6 +118,11 @@
         <h2 onclick="window.location.href='https://www.paypal.me/BlakeCarr452'">PayPal Supporters</h2>
         <div class="person">Michael Johnson</div>
         <div class="person">Emily Davis</div>
+    </div>
+
+    <div class="footer">
+        <p>If you donate to either PayPal or BuyMeACoffee, I will add you to the site!</p>
+        <p>Thanks to everyone who does donate as it helps me out making these sites for you!</p>
     </div>
 </body>
 </html>
